@@ -48,4 +48,18 @@ public class CabInvoiceTest {
         Invoice expectedInvoice = new Invoice(67.0,3,22.333333333333332);
         Assertions.assertEquals(expectedInvoice,actualInvoice);
     }
+
+    @Test
+    void givenUserIdShouldReturnInvoiceForPremiumRides(){
+        Ride ride1 = new Ride(Ride.Category.PRIMIUM_RIDE,8,4);
+        Ride ride2 = new Ride(Ride.Category.PRIMIUM_RIDE,6,3);
+        Ride[] rides2 =new Ride[]{ride1,ride2};
+        Customer customer2 = new Customer(2);
+        customer2.rideList = rides2;
+        CabInvoice.customerList.add(customer2);
+        Invoice actualInvoice = cabInvoice.generateInvoice(rides2);
+        Invoice expectedInvoice = new Invoice(147.0,2,73.5);
+        Assertions.assertEquals(expectedInvoice,actualInvoice);
+
+    }
 }

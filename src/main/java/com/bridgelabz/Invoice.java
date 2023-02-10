@@ -6,14 +6,24 @@ public class Invoice {
 
     int totalRides;
     double totalFare;
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "totalRides=" + totalRides +
+                ", totalFare=" + totalFare +
+                ", avgFare=" + avgFare +
+                '}';
+    }
+
     double avgFare;
 
     public Invoice(double totalFare, int totalRides, double avgFare) {
-
         this.totalFare = totalFare;
+        this.totalRides = totalRides;
         this.avgFare = avgFare;
-        this.totalRides = this.totalRides;
     }
+
 
     @Override
     public boolean equals(Object o) {
